@@ -2,7 +2,6 @@
 Contains the coding assignment for the backend team onboarding process.
 
 This repository contains a foundational project structure, including API, a database model and a test project.
-The task will be to add a new API endpoint for Slack integration.
 
 # Prerequisites
 
