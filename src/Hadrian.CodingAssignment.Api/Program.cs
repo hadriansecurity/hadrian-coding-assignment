@@ -33,7 +33,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();
 
 namespace Hadrian.Coding.Assignment.Api
 {

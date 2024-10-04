@@ -38,6 +38,13 @@ namespace Hadrian.CodingAssignment.Infrastructure.Migrations
                         .HasName("pk_organizations");
 
                     b.ToTable("organizations", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("19161394-fc07-4086-a581-5727cc8bfee8"),
+                            Name = "Hadrian"
+                        });
                 });
 
             modelBuilder.Entity("Hadrian.CodingAssignment.Infrastructure.Model.Risk", b =>
@@ -83,6 +90,35 @@ namespace Hadrian.CodingAssignment.Infrastructure.Migrations
                     b.ToTable("risks", (string)null);
 
                     b.UseTphMappingStrategy();
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("2d590ae4-36e9-485e-9bc8-f42a29123f4d"),
+                            Created = new DateTimeOffset(new DateTime(2024, 10, 4, 13, 26, 34, 47, DateTimeKind.Unspecified).AddTicks(3677), new TimeSpan(0, 0, 0, 0, 0)),
+                            OrganizationId = new Guid("19161394-fc07-4086-a581-5727cc8bfee8"),
+                            RiskSeverity = "Low",
+                            RiskStatus = "New",
+                            Title = "Low severity initial risk"
+                        },
+                        new
+                        {
+                            Id = new Guid("5de2e659-4b83-4cef-b5f0-b621cf3812de"),
+                            Created = new DateTimeOffset(new DateTime(2024, 10, 4, 13, 26, 34, 47, DateTimeKind.Unspecified).AddTicks(3683), new TimeSpan(0, 0, 0, 0, 0)),
+                            OrganizationId = new Guid("19161394-fc07-4086-a581-5727cc8bfee8"),
+                            RiskSeverity = "Medium",
+                            RiskStatus = "New",
+                            Title = "Medium severity initial risk"
+                        },
+                        new
+                        {
+                            Id = new Guid("747b90aa-1013-4f19-9c0a-e567d2ff0c35"),
+                            Created = new DateTimeOffset(new DateTime(2024, 10, 4, 13, 26, 34, 47, DateTimeKind.Unspecified).AddTicks(3685), new TimeSpan(0, 0, 0, 0, 0)),
+                            OrganizationId = new Guid("19161394-fc07-4086-a581-5727cc8bfee8"),
+                            RiskSeverity = "High",
+                            RiskStatus = "New",
+                            Title = "High severity initial risk"
+                        });
                 });
 
             modelBuilder.Entity("Hadrian.CodingAssignment.Infrastructure.Model.User", b =>
@@ -113,6 +149,15 @@ namespace Hadrian.CodingAssignment.Infrastructure.Migrations
                         .HasDatabaseName("ix_users_organization_id");
 
                     b.ToTable("users", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("076dc2f8-e6dd-471b-9aa1-36418e5f7f2a"),
+                            OrganizationId = new Guid("19161394-fc07-4086-a581-5727cc8bfee8"),
+                            PasswordHash = "TAC1U1saMwgrjoG2",
+                            Username = "Hadrian"
+                        });
                 });
 
             modelBuilder.Entity("Hadrian.CodingAssignment.Infrastructure.Model.Risk", b =>

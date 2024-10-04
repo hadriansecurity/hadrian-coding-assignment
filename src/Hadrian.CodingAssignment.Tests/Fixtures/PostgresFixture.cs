@@ -19,7 +19,7 @@ public sealed class PostgresFixture : IAsyncLifetime
     {
         _container = new PostgreSqlBuilder()
             .WithImage("postgres:14-bullseye")
-            .WithPortBinding(5432, PostgreSqlBuilder.PostgreSqlPort)
+            .WithPortBinding(PostgreSqlBuilder.PostgreSqlPort, assignRandomHostPort: true)
             .Build();
     }
 

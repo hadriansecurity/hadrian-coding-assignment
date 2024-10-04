@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/Hadrian.CodingAssignment.Api/Hadrian.CodingAssignment.Api.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary;ForceNoAlign"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "docker-compose",
+            "type": "shell",
+            "command": "docker compose up --wait",
+            "problemMatcher": []
+        },
+        {
+            "label": "database-update",
+            "dependsOrder": "parallel",
+            "dependsOn": [
+                "build",
+                "docker-compose"
+            ],
+            "type": "shell",
+            "command": [
+                "dotnet tool restore;",
+                "dotnet ef -p src/Hadrian.CodingAssignment.Infrastructure/ -s src/Hadrian.CodingAssignment.Api/ --no-build database update;"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "debug",
+            "dependsOrder": "parallel",
+            "dependsOn": [
+                "build",
+                "docker-compose",
+                "database-update"
+            ],
+        }
+    ]
+}

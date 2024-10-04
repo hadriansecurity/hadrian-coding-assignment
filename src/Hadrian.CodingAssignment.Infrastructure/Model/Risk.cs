@@ -14,7 +14,6 @@ public class Risk
 
     public string Title { get; set; }
 
-
     public string? VulnerabilityId { get; set; }
 
     public Guid OrganizationId { get; init; }
